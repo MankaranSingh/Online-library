@@ -360,7 +360,7 @@ class SafariBooks:
         self.clean_book_title = "".join(self.escape_dirname(self.book_title).split(",")[:2]) \
                                 + " ({0})".format(self.book_id)
 
-        books_dir = os.path.join(PATH, "Books")
+        books_dir = os.path.join(PATH, "Books",args.folder_name)
         if not os.path.isdir(books_dir):
             os.mkdir(books_dir)
 
@@ -1076,6 +1076,7 @@ if __name__ == "__main__":
                                                                 " file even if there isn't any error."
     )
     arguments.add_argument("--help", action="help", default=argparse.SUPPRESS, help='Show this help message.')
+    arguments.add_argument("--folder_name",metavar='<FOLDER>',help="Folder's name in book directory",default='')
     arguments.add_argument(
         "bookid", metavar='<BOOK ID>',
         help="Book digits ID that you want to download. You can find it in the URL (X-es):"
@@ -1109,6 +1110,7 @@ if __name__ == "__main__":
         if args_parsed.no_cookies:
             arguments.error("invalid option: `--no-cookies` is valid only if you use the `--cred` option")
 
-    SafariBooks(args_parsed)
+    print(args_parsed)
+    # SafariBooks(args_parsed)
     # Hint: do you want to download more then one book once, initialized more than one instance of `SafariBooks`...
     sys.exit(0)
