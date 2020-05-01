@@ -1111,6 +1111,6 @@ if __name__ == "__main__":
             arguments.error("invalid option: `--no-cookies` is valid only if you use the `--cred` option")
 
     print(args_parsed)
-    # SafariBooks(args_parsed)
+    SafariBooks(args_parsed)
     # Hint: do you want to download more then one book once, initialized more than one instance of `SafariBooks`...
     sys.exit(0)
